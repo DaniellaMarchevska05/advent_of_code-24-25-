@@ -2,8 +2,8 @@ def parse_data(file_path):
     with open(file_path) as file: # 'with' helps to automatically close the file and use it as 'f'
         data = file.read()
         sections = data.strip().split("\n\n")
-        rules = [tuple(map(int, line.split('|')) for line in sections[0].split('\n'))]
-        updates =[list(map(int, line(',')) for line in sections[1].split('\n'))]
+        rules = [tuple(map(int, line.split('|'))) for line in sections[0].split('\n')]
+        updates =[list(map(int, line.split(','))) for line in sections[1].split('\n')]
         return rules, updates
 
 def middle_in_line(update):
